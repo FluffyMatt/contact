@@ -1,0 +1,41 @@
+The task is to create a tiny Contact Management application using the resources in this folder as a starting point.
+
+We'll set your solution up in a LAMP environment - using PHP 5.4+ - if you need any specific directives don't forget to include a .htaccess file / vhost
+
+Application Requirements:
+
+The application must show a listing of the contacts in the data/contacts.json file.
+Users should be able to add existing contacts to a favourite contacts list - this will also copy the contact record to the data/favourites.json file.
+Users should be able to create new contacts that will be added to the data/contacts.json file that can also be made into favourites as described above.
+Users should be able to search for existing contacts.
+The application is targetted at recent Chrome / Firefox - i.e it's HTML5 and we won't be scrutinising it in IE.
+
+What we are looking for:
+
+1. Functionality listed above.
+2. Appropriately formatted and commented code - or code that is legible and logical enough to be self explanatory - suited to the scope of the task.
+3. Creativity in providing the functionality required - we don't have any preferred solution in mind - add as many bells and whistles as you want - use plugins, boilerplates, frameworks etc - as long as you can justify and explain them (and fix them if we break them on purpose).
+4. A user focussed solution - we're looking for a developer not a designer - but your application should be a pleasure to use.
+5. Anything else you want to add that shows us what you can do.....
+
+What we are not looking for:
+
+1. Fluff.  If you're great at CSS and have a natural design flair, show us your stuff - we'll be very happy.  If it meets the above requirements and looks OK - we'll be very happy.
+
+Manifest:
+index.php - a skeleton UI - do what you like with this.
+ContactDirectory.php - a skeleton PHP class for data handling - you'll flesh this out as needed - provided methods are just a starting point - don't think you have to implement all / any of them.
+contactmanager.php - almost a controller - use this if you want.
+normalize.css - a normalising stylesheet already hooked up to index.php - ditch it if you have something else you want to use
+styles.css - minimal functional styling
+
+data/contacts.json - the base contact list - to be used as the persistent data store
+data/favourites.json - the base favourites list - use this to store favourite contacts
+
+js/jquery.min.js - minified jquery 1.11.1 - already included in the head of index.php
+js/script.js - just a external script file with an empty document.ready call in it - already linked in index.php - dicth it if you don't require it.
+
+my_solution - an empty file for you to write a brief description of your solution - just help us out with how you've organised the plumbing. It'd be good to know how much time you spent on each part (roughly) - be honest - intelligence and potential count very highly with us.
+instructions ...... really?
+
+Good luck.
