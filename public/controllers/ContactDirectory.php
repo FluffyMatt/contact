@@ -51,10 +51,14 @@ class ContactDirectory {
 	// Used to find a contact
 	public function search($postContact, $exact = [], $partial = [])
 	{
+		$postContact = strstr($postContact, '+') ? str_replace('+', ' ', $postContact) : $postContact;
+
 		foreach ($this->_contacts as $key => $contact) {
-			if (stristr($postContact, $contact['forename']) && stristr($postContact, $contact['surname'])) {
+			if (stristr($contact['forename'], $postContact) && stristr($contact['surname'], $postContact)) {
 				$exact[] = $contact;
-			} else if (stristr($postContact, $contact['forename']) || stristr($postContact, $contact['surname'])) {
+			} else if (stristr($contact['forename'].' '.$contact['surname'], $postContact)) {
+				$exact[] = $contact;
+			} else if (stristr($contact['forename'], $postContact) || stristr($contact['surname'], $postContact)) {
 				$partial[] = $contact;
 			}
 		}
@@ -65,22 +69,15 @@ class ContactDirectory {
 	// Used to add a new contact
 	public function addContact($data)
 	{
+		// Implodes the address to match the one line approach in the json
 		$data['contact']['address'] = implode(' ', $data['contact']['address']);
-		session_start();
+		// Check if the data was saved if so set success flash
 		if ($this->save($data, 'contacts')) {
-			$_SESSION['message'] = [
-				'type' => 'positive',
-				'header' => 'Save successfull',
-				'message' => 'You successfully added a new contact'
-			];
+			$this->_flash('positive', 'Save successfull', 'You successfully added a new contact');
 			return true;
 		}
 
-		$_SESSION['message'] = [
-			'type' => 'negative',
-			'header' => 'Save failed',
-			'message' => 'Adding a new contact failed'
-		];
+		$this->_flash('negative', 'Save failed', 'Adding a new contact failed');
 
 		return false;
 	}
@@ -88,21 +85,13 @@ class ContactDirectory {
 	// Used to add a contact to a users favourites
 	public function favouriteContact($data)
 	{
-		session_start();
+
 		if ($this->save($data, 'favs')) {
-			$_SESSION['message'] = [
-				'type' => 'positive',
-				'header' => 'Favourite added',
-				'message' => 'You successfully added a new favourite'
-			];
+			$this->_flash('negative', 'Favourite added', 'You successfully added a new favourite');
 			return true;
 		}
 
-		$_SESSION['message'] = [
-			'type' => 'negative',
-			'header' => 'Favourite failed',
-			'message' => 'Adding a new favourite failed'
-		];
+		$this->_flash('positive', 'Favourite failed', 'Adding a new favourite failed');
 
 		return false;
 	}
@@ -116,6 +105,16 @@ class ContactDirectory {
 			}
 		}
 		return false;
+	}
+
+	// Set flash message for the save or unsuccessful saves
+	private function _flash($type, $header, $message) {
+		session_start();
+		$_SESSION['message'] = [
+			'type' => $type,
+			'header' => $header,
+			'message' => $message
+		];
 	}
 
 }
