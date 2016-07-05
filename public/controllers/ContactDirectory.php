@@ -35,14 +35,28 @@ class ContactDirectory {
 				return true;
 			}
 		} else if ($type == 'favs') {
+			// Used to check for duplicates;
+			$duplicate = false;
 			foreach ($this->_favs as $key => $value) {
-				$data[] = $value;
+				if (!stristr($value['forename'], $postData['contact']['forename'])) {
+					$data[] = $value;
+				} else {
+					$duplicate = true;
+				}
 			}
-			$data[] = $postData['contact'];
+			if (!$duplicate) {
+				$data[] = $postData['contact'];
+			}
 
-			if (file_put_contents('./data/favourites.json', json_encode($data, JSON_PRETTY_PRINT))) {
+			$saved = file_put_contents('./data/favourites.json', json_encode($data, JSON_PRETTY_PRINT));
+
+			if ($saved && !$duplicate) {
 				return true;
+			} else if ($saved && $duplicate) {
+				return 'duplicate';
 			}
+
+			return false;
 		}
 
 		return false;
@@ -85,13 +99,18 @@ class ContactDirectory {
 	// Used to add a contact to a users favourites
 	public function favouriteContact($data)
 	{
-
-		if ($this->save($data, 'favs')) {
-			$this->_flash('negative', 'Favourite added', 'You successfully added a new favourite');
+		// Grab the reponse from the save function
+		$response = $this->save($data, 'favs');
+		// Set a flash depending on the response
+		if ($response === true) {
+			$this->_flash('positive', 'Favourite added', 'You successfully added a new favourite');
+			return true;
+		} else if ($response == 'duplicate') {
+			$this->_flash('warning', 'Favourite removed', 'You successfully removed a favourite');
 			return true;
 		}
 
-		$this->_flash('positive', 'Favourite failed', 'Adding a new favourite failed');
+		$this->_flash('negative', 'Favourite failed', 'Adding a new favourite failed');
 
 		return false;
 	}
@@ -99,11 +118,14 @@ class ContactDirectory {
 	// Check to see if a contact is a favourite
 	public function isFavourite($forename, $surname)
 	{
-		foreach ($this->_favs as $key => $contact) {
-			if (stristr($forename, $contact['forename']) && stristr($surname, $contact['surname'])) {
-				return true;
+		if (!empty($this->_favs)) {
+			foreach ($this->_favs as $key => $contact) {
+				if (stristr($forename, $contact['forename']) && stristr($surname, $contact['surname'])) {
+					return true;
+				}
 			}
 		}
+
 		return false;
 	}
 

@@ -21,7 +21,7 @@ $(document).ready(function() {
 	});
 
 	// Add favourite
-	$('.star.icon:not(.active)').click(function() {
+	$('.star.icon').click(function() {
 		$(this).next('.contact-fav').submit();
 	})
 
