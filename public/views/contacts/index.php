@@ -16,11 +16,14 @@
 		<h2 class="ui dividing header">Contact List</h2>
 		<div class="ui cards">
 			<?php
-			foreach ($contacts['contacts'] as $key => $contact) {
-				// Partial used for showing users
-					include(getcwd().'/views/contacts/_contact.php');
-			}
+			if (!empty($contacts['favs'])) {
 
+				foreach ($contacts['contacts'] as $key => $contact) {
+					// Partial used for showing users
+						include(getcwd().'/views/contacts/_contact.php');
+				}
+
+			}
 			?>
 		</div>
 
@@ -30,11 +33,15 @@
 
 		<h2>My Contacts</h2>
 		<?php
-		foreach ($contacts['favs'] as $key => $contact) {
-			// Used to hide span
-			$fav = true;
-			// Partial used for showing users
-			include(getcwd().'/views/contacts/_contact.php');
+		if (!empty($contacts['favs'])) {
+
+			foreach ($contacts['favs'] as $key => $contact) {
+				// Used to hide span
+				$fav = true;
+				// Partial used for showing users
+				include(getcwd().'/views/contacts/_contact.php');
+			}
+
 		}
 
 		?>
