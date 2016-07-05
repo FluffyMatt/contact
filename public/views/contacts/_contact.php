@@ -4,7 +4,7 @@
 	$favourite = $contactDirectory->isFavourite($contact['forename'], $contact['surname']);
 ?>
 
-<div class="ui fluid card">
+<div class="ui card">
 	<div class="content">
 		<div class="header"> <?php echo $contact['forename'].' '.$contact['surname'] ?></div>
 		<p>Email: <a href="<?php echo 'mailto:'.$contact['email'] ?>"><?php echo $contact['email'] ?></a></p>
