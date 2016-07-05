@@ -12,15 +12,17 @@
 
 <div class="ui grid">
 
-	<div class="ui left floated five wide column">
-		<h2>Contact List</h2>
-		<?php
-		foreach ($contacts['contacts'] as $key => $contact) {
-			// Partial used for showing users
-			include(getcwd().'/views/contacts/_contact.php');
-		}
+	<div class="ui left floated eleven wide column">
+		<h2 class="ui dividing header">Contact List</h2>
+		<div class="ui cards">
+			<?php
+			foreach ($contacts['contacts'] as $key => $contact) {
+				// Partial used for showing users
+					include(getcwd().'/views/contacts/_contact.php');
+			}
 
-		?>
+			?>
+		</div>
 
 	</div>
 
