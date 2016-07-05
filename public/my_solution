@@ -41,6 +41,9 @@ bottom right of the card.
 Search had a exact and partial matching system. If an exact match it appears higher in the
 array and higher on the page.
 
+Usually I would minify the CSS and JS together using something like Gulp or Grunt, in this
+case I have due to it being easier to look at. 
+
 ToDo -
 Add ability to un-favourite a user
 Add ability to edit a user
