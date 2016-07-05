@@ -7,9 +7,9 @@
 <div class="ui card">
 	<div class="content">
 		<div class="header"> <?php echo $contact['forename'].' '.$contact['surname'] ?></div>
-		<p>Email: <a href="<?php echo 'mailto:'.$contact['email'] ?>"><?php echo $contact['email'] ?></a></p>
-		<p>Address: <?php echo $contact['address'] ?></p>
-		<p>Telephone: <a href="<?php echo 'tel:'.$contact['telephone'] ?>"><?php echo $contact['telephone'] ?></a></p>
+		<p><b>Email</b>:<br /> <a href="<?php echo 'mailto:'.$contact['email'] ?>"><?php echo $contact['email'] ?></a></p>
+		<p><b>Address</b>:<br /> <?php echo $contact['address'] ?></p>
+		<p><b>Telephone</b>:<br /> <a href="<?php echo 'tel:'.$contact['telephone'] ?>"><?php echo $contact['telephone'] ?></a></p>
 	</div>
 	<?php if (!$fav) { ?>
 	<div class="extra content">
