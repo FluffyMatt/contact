@@ -14,7 +14,7 @@
 	<?php if (!$fav) { ?>
 	<div class="extra content">
 		<span class="right floated star">
-			<i class="star <?php echo $favourite ? 'active' : '' ?> icon"></i> <?php echo $favourite ? 'Is favourite' : 'Favourite' ?>
+			<i class="star <?php echo $favourite ? 'active' : '' ?> icon"></i> <?php echo $favourite ? 'Remove favourite' : 'Favourite' ?>
 			<form class="contact-fav" action="/" method="post" class="hide">
 				<input type="text" name="contact[forename]" value="<?php echo $contact['forename'] ?>">
 				<input type="text" name="contact[surname]"value="<?php echo $contact['surname'] ?>">
