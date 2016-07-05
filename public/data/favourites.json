@@ -5,33 +5,5 @@
         "email": "alphonse.leduc@anemailaddress.com",
         "address": "42 Wallaby Way\nSydney\nAustralia",
         "telephone": "0123 4567 8911"
-    },
-    {
-        "forename": "Lucy",
-        "surname": "Smith",
-        "email": "smith@smith-lucy.com",
-        "address": "254 High StreetOrpingtonKent",
-        "telephone": "07858 5458 9695"
-    },
-    {
-        "forename": "Sarah",
-        "surname": "Montague",
-        "email": "smont@anemailaddress.com",
-        "address": "13 Street LaneSurbitonUK",
-        "telephone": "0958 4938 5941"
-    },
-    {
-        "forename": "Hermanigildo",
-        "surname": "Fernandez",
-        "email": "fernandez.h@anemailaddress.com",
-        "address": "26 Grovesnor GardensLondon",
-        "telephone": "0123 4567 8911"
-    },
-    {
-        "forename": "Matt",
-        "surname": "Stephens",
-        "email": "matt@matt.com",
-        "address": "2 The Pintails St Marys Island Chatham Chatham",
-        "telephone": "123456"
     }
 ]

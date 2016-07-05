@@ -33,12 +33,5 @@
         "email": "smith@smith-lucy.com",
         "address": "254 High Street\nOrpington\nKent",
         "telephone": "07858 5458 9695"
-    },
-    {
-        "forename": "Matt",
-        "surname": "Stephens",
-        "email": "matt@matt.com",
-        "telephone": "123456",
-        "address": "2 The Pintails St Marys Island Chatham Chatham"
     }
 ]
