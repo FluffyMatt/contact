@@ -11,18 +11,18 @@
 
 <div class="ui grid">
 
-	<div class="ui left floated five wide column">
-		<?php
+	<div class="ui left floated sixteen wide column">
+		<div class="ui cards">
+			<?php
 
-		foreach ($results as $key => $contact) {
+			foreach ($results as $key => $contact) {
 
-			include(getcwd().'/views/contacts/_contact.php');
+				include(getcwd().'/views/contacts/_contact.php');
 
-		}
+			}
 
-		?>
-
-
+			?>
+		</div>
 	</div>
 
 </div>
