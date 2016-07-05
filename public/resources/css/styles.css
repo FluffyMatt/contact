@@ -1,3 +1,5 @@
 .ui.dividing.header, .ui.grid { margin-top: 20px; }
+.edit.icon { cursor: pointer; }
 .contact-fav { display: none; }
 footer { margin-top: 20px;}
+.card .content .header { margin-bottom: 10px; }
