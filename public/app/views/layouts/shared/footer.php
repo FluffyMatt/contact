@@ -1,7 +1,7 @@
 <footer>
 
 	<div class="ui horizontal divider">
-    &copy; ITRM <?php echo date('Y') ?>
+    &copy; Workflow Solutions <?php echo date('Y') ?>
   	</div>
 
 </footer>

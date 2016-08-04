@@ -1,7 +1,4 @@
 <?php
-	// Load in contacts and favourites
-	$contact = new App\Contact\ContactDirectory();
-	$contacts = $contact->load();
 
 	if ($_POST) {
 		$contact->favouriteContact($_POST);
@@ -16,14 +13,11 @@
 		<h2 class="ui dividing header">Contact List</h2>
 		<div class="ui cards">
 			<?php
-			if (!empty($contacts['favs'])) {
 
-				foreach ($contacts['contacts'] as $key => $contact) {
+				foreach ($contacts as $key => $contact) {
 					// Partial used for showing users
-						include(getcwd().'/views/contacts/_contact.php');
+					include(getcwd().'/app/views/contacts/_contact.php');
 				}
-
-			}
 			?>
 		</div>
 
@@ -33,13 +27,13 @@
 
 		<h2>My Contacts</h2>
 		<?php
-		if (!empty($contacts['favs'])) {
+		if (!empty($favourites)) {
 
-			foreach ($contacts['favs'] as $key => $contact) {
+			foreach ($favourites as $key => $contact) {
 				// Used to hide span
 				$fav = true;
 				// Partial used for showing users
-				include(getcwd().'/views/contacts/_contact.php');
+				include(getcwd().'/app/views/contacts/_contact.php');
 			}
 
 		}
