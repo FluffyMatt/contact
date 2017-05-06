@@ -1,4 +1,4 @@
-#ITRM Code Test by Matt Stephens
+#Code Test by Matt Stephens
 
 ## Prerequisites
 -Vagrant  
